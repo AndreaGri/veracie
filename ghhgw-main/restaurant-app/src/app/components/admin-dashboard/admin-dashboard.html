@@ -1,0 +1,14 @@
+<div class="admin-page">
+  <div class="header">
+    <h1>Staff Panel</h1>
+    <button (click)="auth.logout()">Esci</button>
+  </div>
+  <div *ngFor="let o of orders$ | async" class="admin-order">
+    <p>Tavolo: {{o.note}} | <strong>{{o.stato}}</strong></p>
+    <div class="actions">
+      <button (click)="aggiorna(o.id, 'in preparazione')">In Prep.</button>
+      <button (click)="aggiorna(o.id, 'pronto')">Pronto</button>
+      <button (click)="aggiorna(o.id, 'consegnato')">Fine</button>
+    </div>
+  </div>
+</div>

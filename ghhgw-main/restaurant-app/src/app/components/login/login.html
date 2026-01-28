@@ -1,0 +1,7 @@
+<div class="auth-container">
+  <h2>{{ isLogin ? 'Accedi' : 'Registrati' }}</h2>
+  <input type="email" [(ngModel)]="email" placeholder="Email">
+  <input type="password" [(ngModel)]="password" placeholder="Password">
+  <button (click)="submit()">{{ isLogin ? 'Entra' : 'Crea Account' }}</button>
+  <p (click)="isLogin = !isLogin">{{ isLogin ? 'Nuovo utente? Registrati' : 'Hai un account? Accedi' }}</p>
+</div>

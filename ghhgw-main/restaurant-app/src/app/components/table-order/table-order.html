@@ -1,0 +1,15 @@
+<div class="table-container">
+  <h2>Tavolo: {{tableId}}</h2>
+  <div *ngIf="orders$ | async as list; else loading">
+    <div *ngFor="let o of list" class="order-box">
+      <strong>Stato: {{o.stato}}</strong>
+      <ul><li *ngFor="let p of o.piatti">{{p.nome}}</li></ul>
+      <p>Subtotale: {{o.totale}}€</p>
+    </div>
+    <div class="summary">
+      <h3>Totale Tavolo: {{ calcola(list) }}€</h3>
+      <p>Quota a testa (3 persone): {{ (calcola(list)/3).toFixed(2) }}€</p>
+    </div>
+  </div>
+  <ng-template #loading>Caricamento ordini...</ng-template>
+</div>
