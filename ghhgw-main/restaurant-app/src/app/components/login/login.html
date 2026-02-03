@@ -9,8 +9,15 @@
 
   <div *ngIf="showTableInput">
     <h2>Benvenuto! 👋</h2>
-    <p style="margin-bottom: 20px; color: #666;">A quale tavolo sei seduto?</p>
-    <input type="text" [(ngModel)]="tableNumber" placeholder="Es: Tavolo 5" autofocus>
+    <p style="margin-bottom: 20px; color: #666;">Qualche informazione sul tavolo</p>
+    
+    <input type="text" [(ngModel)]="tableNumber" placeholder="📍 Numero tavolo (es: Tavolo 5)" autofocus>
+    
+    <label style="display: block; text-align: left; margin: 15px 0 8px; color: #2c3e50; font-weight: 600; font-size: 0.95rem;">
+      👥 Numero di persone al tavolo
+    </label>
+    <input type="number" [(ngModel)]="numberOfPeople" placeholder="Es: 4" min="1" max="20">
+    
     <button (click)="goToMenu()">Vai al Menu</button>
   </div>
 </div>

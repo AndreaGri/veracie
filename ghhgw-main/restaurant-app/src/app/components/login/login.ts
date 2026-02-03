@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { Restaurant } from '../../services/restaurant';
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -22,6 +23,7 @@ export class LoginComponent {
   
   showTableInput = false;
   tableNumber = '';
+  numberOfPeople = 1;
   currentEmail = '';
 
   async submit() {
@@ -48,7 +50,13 @@ export class LoginComponent {
       return;
     }
     
+    if (this.numberOfPeople < 1) {
+      alert('Inserisci un numero valido di persone!');
+      return;
+    }
+    
     this.restaurant.setTable(this.tableNumber);
+    this.restaurant.setPeople(this.numberOfPeople);
     this.router.navigate(['/menu']);
   }
 }

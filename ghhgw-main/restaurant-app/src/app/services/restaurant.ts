@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class Restaurant {
   private tableNumber$ = new BehaviorSubject<string>('');
+  private numberOfPeople$ = new BehaviorSubject<number>(1);
 
   setTable(table: string) {
     this.tableNumber$.next(table);
@@ -20,12 +21,31 @@ export class Restaurant {
     return this.tableNumber$.value || stored || '';
   }
 
+  setPeople(count: number) {
+    this.numberOfPeople$.next(count);
+    localStorage.setItem('numberOfPeople', count.toString());
+  }
+
+  getPeople(): number {
+    const stored = localStorage.getItem('numberOfPeople');
+    if (stored && this.numberOfPeople$.value === 1) {
+      this.numberOfPeople$.next(parseInt(stored));
+    }
+    return this.numberOfPeople$.value || parseInt(stored || '1');
+  }
+
   getTable$() {
     return this.tableNumber$.asObservable();
   }
 
+  getPeople$() {
+    return this.numberOfPeople$.asObservable();
+  }
+
   clearTable() {
     this.tableNumber$.next('');
+    this.numberOfPeople$.next(1);
     localStorage.removeItem('tableNumber');
+    localStorage.removeItem('numberOfPeople');
   }
 }

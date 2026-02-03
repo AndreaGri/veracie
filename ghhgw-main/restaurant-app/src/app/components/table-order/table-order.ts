@@ -2,7 +2,8 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { OrderService } from '../../services/order.service';
-import { Observable } from 'rxjs';
+import { Restaurant } from '../../services/restaurant';
+
 @Component({
   selector: 'app-table-order',
   standalone: true,
@@ -11,18 +12,25 @@ import { Observable } from 'rxjs';
   styleUrl: './table-order.css'
 })
 export class TableOrderComponent implements OnInit {
-  private route = inject(ActivatedRoute);
-  private orderService = inject(OrderService);
+  orderService = inject(OrderService);
+  restaurant = inject(Restaurant);
+  route = inject(ActivatedRoute);
+  
+  orders$ = this.orderService.getOrdersByTable('');
   tableId = '';
-  orders5620: Observable<any[]> | undefined;
-  orders$: Observable<any[]> | undefined;
+  numberOfPeople = 1;
 
   ngOnInit() {
-    this.tableId = this.route.snapshot.paramMap.get('tableId') || 'generale';
+    this.tableId = this.route.snapshot.paramMap.get('id') || '';
+    this.numberOfPeople = this.restaurant.getPeople();
     this.orders$ = this.orderService.getOrdersByTable(this.tableId);
   }
 
   calcola(list: any[]): number {
-    return list.reduce((a, b) => a + (b.totale || 0), 0);
+    return list.reduce((sum, o) => sum + (o.totale || 0), 0);
+  }
+
+  quotaATesta(total: number): string {
+    return (total / this.numberOfPeople).toFixed(2);
   }
 }

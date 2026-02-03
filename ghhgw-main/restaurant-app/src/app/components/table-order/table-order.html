@@ -8,7 +8,7 @@
     </div>
     <div class="summary">
       <h3>Totale Tavolo: {{ calcola(list) }}€</h3>
-      <p>Quota a testa (3 persone): {{ (calcola(list)/3).toFixed(2) }}€</p>
+      <p>Quota a testa ({{numberOfPeople}} {{ numberOfPeople === 1 ? 'persona' : 'persone' }}): {{ quotaATesta(calcola(list)) }}€</p>
     </div>
   </div>
   <ng-template #loading>Caricamento ordini...</ng-template>
