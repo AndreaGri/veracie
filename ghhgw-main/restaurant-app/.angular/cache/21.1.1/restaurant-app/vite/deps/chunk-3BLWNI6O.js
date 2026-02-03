@@ -40,27 +40,29 @@ import {
   ɵgetAllInstancesOf,
   ɵgetDefaultInstanceOf,
   ɵzoneWrap
-} from "./chunk-F2MWQIC7.js";
+} from "./chunk-TIHZKKKQ.js";
 import {
   InjectionToken,
   Injector,
   NgModule,
   NgZone,
-  Observable,
   Optional,
   PLATFORM_ID,
+  makeEnvironmentProviders,
+  setClassMetadata,
+  ɵɵdefineInjector,
+  ɵɵdefineNgModule
+} from "./chunk-XE5I6J2K.js";
+import {
+  Observable,
   __rest,
   concatMap,
   distinct,
   from,
-  makeEnvironmentProviders,
   of,
-  setClassMetadata,
   switchMap,
-  timer,
-  ɵɵdefineInjector,
-  ɵɵdefineNgModule
-} from "./chunk-ZKN6USAP.js";
+  timer
+} from "./chunk-KKXAT6JH.js";
 
 // node_modules/@firebase/app-check/dist/esm/index.esm2017.js
 var APP_CHECK_STATES = /* @__PURE__ */ new Map();
@@ -9218,4 +9220,4 @@ export {
   verifyBeforeUpdateEmail2 as verifyBeforeUpdateEmail,
   verifyPasswordResetCode2 as verifyPasswordResetCode
 };
-//# sourceMappingURL=chunk-KDWNU755.js.map
+//# sourceMappingURL=chunk-3BLWNI6O.js.map

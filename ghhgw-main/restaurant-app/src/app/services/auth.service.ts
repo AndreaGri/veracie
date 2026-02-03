@@ -7,29 +7,24 @@ export class AuthService {
   private auth = inject(Auth);
   private router = inject(Router);
   
-  // Usiamo user(this.auth) solo quando richiesto per evitare warning di injection
   user$ = user(this.auth);
 
   async login(email: string, pass: string) {
     try {
       await signInWithEmailAndPassword(this.auth, email, pass);
-      this.redirect(email);
+      return email;
     } catch (e) { throw e; }
   }
 
   async register(email: string, pass: string) {
     try {
       await createUserWithEmailAndPassword(this.auth, email, pass);
-      this.redirect(email);
+      return email;
     } catch (e) { throw e; }
   }
 
-  private redirect(email: string) {
-    if (email === 'admin@admin.it') {
-      this.router.navigate(['/admin']);
-    } else {
-      this.router.navigate(['/menu']);
-    }
+  isAdmin(email: string): boolean {
+    return email === 'admin@admin.it';
   }
 
   logout() {

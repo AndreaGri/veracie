@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { OrderService } from '../../services/order.service';
 import { Observable } from 'rxjs';
-
 @Component({
   selector: 'app-table-order',
   standalone: true,

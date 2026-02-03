@@ -1,5 +1,11 @@
 <div class="menu-page">
-  <h1>Il nostro Menu</h1>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <h1>Il nostro Menu</h1>
+    <span style="background: #667eea; color: white; padding: 8px 16px; border-radius: 20px; font-weight: 600;">
+      📍 {{tableNumber}}
+    </span>
+  </div>
+  
   <div *ngFor="let p of piatti" class="item">
     <span>{{p.nome}} ({{p.prezzo}}€)</span>
     <button (click)="add(p)">+</button>
@@ -8,6 +14,6 @@
   <div class="cart">
     <h3>Carrello ({{carrello.length}})</h3>
     <button (click)="invia()" [disabled]="carrello.length === 0">Ordina Ora</button>
-    <a routerLink="/table/tavolo-1">Vedi Stato Tavolo</a>
+    <a [routerLink]="['/table', tableNumber]">Vedi Stato Tavolo</a>
   </div>
 </div>
