@@ -1,3 +1,122 @@
-.menu-page { padding: 20px; font-family: sans-serif; }
-.item { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee; }
-.cart { margin-top: 20px; padding: 15px; background: #f4f4f4; border-radius: 5px; }
+.menu-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.menu-page h1 {
+  color: #2c3e50;
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  border-bottom: 3px solid #3498db;
+  padding-bottom: 15px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.item:hover {
+  background: #f8f9fa;
+  transform: translateX(5px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.item span {
+  font-size: 1.1rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.item button {
+  background: #3498db;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 2px 4px rgba(52, 152, 219, 0.3);
+}
+
+.item button:hover {
+  background: #2980b9;
+  transform: scale(1.1);
+}
+
+.item button:active {
+  transform: scale(0.95);
+}
+
+.menu-page hr {
+  border: none;
+  border-top: 2px solid #e0e0e0;
+  margin: 30px 0;
+}
+
+.cart {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.cart h3 {
+  color: white;
+  margin: 0 0 20px;
+  font-size: 1.5rem;
+}
+
+.cart button {
+  background: white;
+  color: #667eea;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: all 0.3s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.cart button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.cart button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cart a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 2px solid white;
+  border-radius: 20px;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.cart a:hover {
+  background: white;
+  color: #667eea;
+  transform: scale(1.05);
+}
